@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
+import ScreenHeader from "../Screen components/ScreenHeader";
 
 export default function MoviesScreen() {
     const [movies, setMovies] = useState();
@@ -16,9 +17,9 @@ export default function MoviesScreen() {
 
     return (
         <div className="MoviesScreenContainer">
-            <div className="MoviesScreenHeader">
-                <h1>Selecione o filme</h1>
-            </div>
+            <ScreenHeader>
+                Selecione o filme
+            </ScreenHeader>
             <div className="movies">
                 {movies.map((movie) => {
                     return (

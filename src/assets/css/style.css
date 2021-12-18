@@ -1,60 +1,245 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: white;
+  font-family: 'Roboto', sans-serif;
+  background-color: white;
 }
 
 header {
-    width: 100%;
-    height: 67px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #C3CFD9;
+  width: 100%;
+  height: 67px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #C3CFD9;
 }
 
 header span {
-    font: 400 34px roboto;
-    color: #E8833A;
-    text-transform: uppercase;
+  font: 400 34px roboto;
+  color: #E8833A;
+  text-transform: uppercase;
 }
 
 .MoviesScreenContainer {
-    width: 100%;
+  width: 100%;
 }
 
-.MoviesScreenHeader {
-    width: 100%;
-    height: 110px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.ScreenHeader {
+  width: 100%;
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
-    font: 400 24px roboto;
+  font: 400 24px roboto;
 }
 
 .movies {
-    padding: 0 20px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 .movies .movie {
-    width: 145px;
-    height: 209px;
-    box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
-    border-radius: 3px;
-    cursor: pointer;
+  width: 145px;
+  height: 209px;
+  box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  cursor: pointer;
 }
 
 .movies .movie img {
-    width: 129px;
-    height: 193px;
+  width: 129px;
+  height: 193px;
+}
+
+.SessionScreenContainer {
+  width: 100%;
+}
+
+
+.ScreenFooter {
+  width: 100%;
+  height: 117px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #DEE6ED;
+  border-top: 1px solid #9EADBA;
+  padding-left: 10px;
+}
+
+.ScreenFooter>div {
+  width: 64px;
+  height: 89px;
+  box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 14px;
+}
+
+.ScreenFooter>div img {
+  width: 46px;
+  height: 72px;
+}
+
+.ScreenFooter span {
+  font: 400 26px roboto;
+}
+
+.sessions {
+  padding-left: 23px;
+}
+
+.session {
+  font: 400 20px roboto;
+}
+
+.showtimes {
+  display: flex;
+  gap: 8px;
+  margin: 23px 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.button {
+  width: 83px;
+  height: 43px;
+  background-color: #E8833A;
+  color: white;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.SeatsScreenContainer {
+  margin-bottom: 117px;
+}
+
+.SeatsScreenContainer .button {
+  width: 225px;
+  height: 42px;
+  margin: 57px auto 0 auto;
+}
+
+.seats {
+  max-width: 327px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+
+}
+
+.seat {
+  width: 7.95107%;
+  min-width: 26px;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  background-color: #C3CFD9;
+  border: 1px solid #808F9D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.seat.unavailable {
+  background-color: #FBE192;
+  border: 1px solid #F7C52B;
+}
+
+.seat.selected {
+  background-color: #8DD7CF;
+  border: 1px solid #45BDB0;
+}
+
+.seat span {
+  font: 400 11px roboto;
+}
+
+.legend {
+  display: flex;
+  margin-top: 16px;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.legend>div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inputs {
+  width: 327px;
+  margin: 41px auto 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputs span {
+  font: 400 18px roboto;
+  margin-bottom: 1px;
+}
+
+.inputs input {
+  width: 327px;
+  height: 51px;
+  border: 1px solid #D5D5D5;
+  border-radius: 3px;
+  margin-bottom: 7px;
+  padding-left: 18px;
+}
+
+.inputs input::placeholder {
+  font: italic 400 18px roboto;
+}
+
+.SuccessScreenContainer>div {
+  margin: 0 0 40px 29px;
+  color: #293845;
+
+}
+
+.SuccessScreenContainer>div:first-of-type {
+  margin: 0;
+}
+
+.SuccessScreenContainer h1 {
+  font: 700 24px roboto;
+  margin-bottom: 10px;
+
+}
+
+.SuccessScreenContainer span {
+  font: 400 22px roboto;
+}
+
+.SuccessScreenContainer .ScreenHeader h1 {
+  color: #247A6B;
+  margin: 0;
+}
+
+.SuccessScreenContainer .button {
+  margin: 50px auto 0 auto;
+  width: 225px;
+  height: 42px;
 }
