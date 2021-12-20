@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom"
 import Button from "../Screen components/Button";
+import ReturnInputs from "../Screen components/ReturnInputs";
 import ScreenFooter from "../Screen components/ScreenFooter";
 import ScreenHeader from "../Screen components/ScreenHeader";
 import Seat from "../Screen components/Seat";
@@ -9,20 +10,19 @@ import Seat from "../Screen components/Seat";
 
 export default function SeatsScreen() {
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const [serverData, setServerData] = useState();
 
   const [selectedSeatsIds, setSelectedSeatsIds] = useState([]);
   const [selectedSeatsNames, setSelectedSeatsNames] = useState([]);
 
-  const [nameInput, setNameInput] = useState('');
-  const [cpfInput, setcpfInput] = useState('');
+  let buyers = [];
 
-  let navigate = useNavigate();
 
   let selectedSeatsObject = {
     ids: selectedSeatsIds,
-    name: "Fulano",
-    cpf: "12345678900"
+    compradores: []
   }
 
   useEffect(() => {
@@ -31,6 +31,7 @@ export default function SeatsScreen() {
         setServerData(serverAnswer.data);
       })
   }, [id]);
+
 
   if (serverData === undefined) return <h1>Carregando...</h1>;
 
@@ -42,7 +43,7 @@ export default function SeatsScreen() {
 
       <div className="seats">
         {serverData.seats.map((seat) =>
-          <Seat key={seat.id}>
+          <Seat key={seat.id} >
             {seat.id}
             {seat.name}
             {seat.isAvailable}
@@ -50,6 +51,7 @@ export default function SeatsScreen() {
             {setSelectedSeatsIds}
             {selectedSeatsNames}
             {setSelectedSeatsNames}
+            {buyers}
           </Seat>
 
         )}
@@ -69,15 +71,12 @@ export default function SeatsScreen() {
         </div>
       </div>
 
-      <div className="inputs">
-        <span>Nome do comprador</span>
-        <input type="text" placeholder="Digite seu nome..."
-          onChange={(event) => { setNameInput(event.target.value) }} value={nameInput} />
 
-        <span>CPF do comprador</span>
-        <input type="number" placeholder="Digite seu CPF..."
-          onChange={(event) => { setcpfInput(event.target.value) }} value={cpfInput} />
-      </div>
+      <ReturnInputs >
+        {selectedSeatsIds}
+        {selectedSeatsNames}
+        {buyers}
+      </ReturnInputs>
 
       <Button>
         {""}
@@ -86,17 +85,18 @@ export default function SeatsScreen() {
           if (selectedSeatsIds.length !== 0) {
             axios.post("https://mock-api.driven.com.br/api/v4/cineflex/seats/book-many", selectedSeatsObject)
               .then((serverAnswer) => {
-                navigate('/success', {
-                  state: {
-                    title: serverData.movie.title,
-                    weekday: serverData.day.weekday,
-                    date: serverData.day.date,
-                    showtime: serverData.name,
-                    seats: selectedSeatsNames,
-                    buyersName: nameInput,
-                    buyersCpf: cpfInput,
-                  }
-                });
+                setTimeout(() => {
+                  navigate('/success', {
+                    state: {
+                      title: serverData.movie.title,
+                      weekday: serverData.day.weekday,
+                      date: serverData.day.date,
+                      showtime: serverData.name,
+                      seats: selectedSeatsNames,
+                      buyers: buyers
+                    }
+                  })
+                }, 50);
               })
               .catch(() => {
                 alert(`Algo deu errado :(

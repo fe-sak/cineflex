@@ -1,7 +1,10 @@
 import { useState } from "react/cjs/react.development";
 
-export default function Seat({ children: [id, name, isAvailable, selectedSeatsIds, setSelectedSeatsIds, selectedSeatsNames, setSelectedSeatsNames] }) {
+export default function Seat({ children: [id, name, isAvailable, selectedSeatsIds,
+  setSelectedSeatsIds, selectedSeatsNames, setSelectedSeatsNames, buyers] }) {
   const [seatState, setSeatState] = useState();
+
+
   return (
     <div className={`seat ${isAvailable ? '' : 'unavailable'} ${seatState}`} onClick={() => {
 
@@ -10,13 +13,24 @@ export default function Seat({ children: [id, name, isAvailable, selectedSeatsId
         if (seatState === undefined) {
           setSeatState("selected");
           setSelectedSeatsIds([...selectedSeatsIds, id]);
-          setSelectedSeatsNames([...selectedSeatsNames, name])
-
+          setSelectedSeatsNames([...selectedSeatsNames, name]);
         }
         else {
-          setSeatState();
-          setSelectedSeatsIds(selectedSeatsIds.filter((selectedSeat) => selectedSeat !== id));
-          setSelectedSeatsNames(selectedSeatsNames.filter((selectedSeat) => selectedSeat !== name));
+          let currentBuyer = buyers.filter((buyer) => buyer.idAssento === id);
+          console.log("currentBuyer")
+          console.log(currentBuyer);
+          if (currentBuyer[0].nome.length !== 0 || currentBuyer[0].cpf.length !== 0) {
+            if (window.confirm("Deseja desselecionar este assento? Os dados preenchidos serão perdidos!")) {
+              setSeatState();
+              setSelectedSeatsIds(selectedSeatsIds.filter((selectedSeat) => selectedSeat !== id));
+              setSelectedSeatsNames(selectedSeatsNames.filter((selectedSeat) => selectedSeat !== name));
+            }
+          }
+          else {
+            setSeatState();
+            setSelectedSeatsIds(selectedSeatsIds.filter((selectedSeat) => selectedSeat !== id));
+            setSelectedSeatsNames(selectedSeatsNames.filter((selectedSeat) => selectedSeat !== name));
+          }
         }
       }
 
