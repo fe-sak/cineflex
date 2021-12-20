@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { useLocation } from "react-router-dom";
 import Button from "../Screen components/Button";
 import ScreenHeader from "../Screen components/ScreenHeader";
@@ -25,16 +26,27 @@ export default function SuccessScreen() {
         <h1>Ingressos</h1>
         {state.seats.map((seat) => {
           return (
-            <span key={seat}>Assento {seat}</span>
+            <Fragment key={seat}>
+              <span >Assento {seat}</span>
+              <br />
+            </Fragment>
           )
         })}
       </div>
 
       <div>
         <h1>Comprador</h1>
-        <span>Nome: {state.buyersName}</span>
-        <br />
-        <span>CPF: {state.buyersCpf}</span>
+        {state.buyers.map((buyer) => {
+          return (
+            <Fragment key={buyer.idAssento}>
+              <span>Nome: {buyer.nome}</span>
+              <br />
+              <span>CPF: {buyer.cpf}</span>
+              <br />
+              <br />
+            </Fragment>
+          )
+        })}
       </div>
 
       <Button>
