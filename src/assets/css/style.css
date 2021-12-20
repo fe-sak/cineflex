@@ -14,12 +14,22 @@ header {
   justify-content: center;
   align-items: center;
   background-color: #C3CFD9;
+  position: relative;
 }
 
 header span {
   font: 400 34px roboto;
   color: #E8833A;
   text-transform: uppercase;
+}
+
+header ion-icon {
+  color: #E8833A;
+  position: absolute;
+  top: 50%;
+  transform: translatey(-50%);
+  left: 20px;
+  font-size: 40px;
 }
 
 .MoviesScreenContainer {
@@ -39,11 +49,12 @@ h1 {
 }
 
 .movies {
+  width: fit-content;
   padding: 0 20px;
-  display: flex;
-  justify-content: center;
+  display: inline-flex;
   flex-wrap: wrap;
   gap: 30px;
+  justify-content: center;
 }
 
 .movies .movie {
