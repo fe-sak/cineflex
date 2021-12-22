@@ -1,4 +1,4 @@
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 
 export default function Seat({ children: [id, name, isAvailable, selectedSeatsIds,
   setSelectedSeatsIds, selectedSeatsNames, setSelectedSeatsNames, buyers] }) {

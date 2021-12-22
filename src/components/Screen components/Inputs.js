@@ -1,4 +1,4 @@
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 
 export default function Inputs({ children: [id, selectedSeatsNames, index, buyers] }) {
   const [nameInput, setNameInput] = useState('');
