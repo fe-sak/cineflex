@@ -8,7 +8,7 @@ export default function SuccessScreen() {
   const state = location.state
   console.log(location)
   return (
-    <div className="SuccessScreenContainer">
+    <div className="successScreenContainer">
       <ScreenHeader>
         {"Pedido feito com sucesso!"}
       </ScreenHeader>

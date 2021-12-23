@@ -37,7 +37,7 @@ export default function SeatsScreen() {
   if (serverData === undefined) return <Loading />
 
   return (
-    <div className="SeatsScreenContainer">
+    <div className="seatsScreenContainer">
       <ScreenHeader>
         Selecione o(s) assento(s)
       </ScreenHeader>

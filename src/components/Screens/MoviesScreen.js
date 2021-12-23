@@ -18,7 +18,7 @@ export default function MoviesScreen() {
   if (movies === undefined) return <Loading />
 
   return (
-    <div className="MoviesScreenContainer">
+    <div className="moviesScreenContainer">
       <ScreenHeader>
         Selecione o filme
       </ScreenHeader>

@@ -21,7 +21,7 @@ export default function SessionScreen() {
   if (sessions === undefined) return <Loading />
 
   return (
-    <div className="SessionScreenContainer">
+    <div className="sessionScreenContainer">
       <ScreenHeader>
         Selecione o horário
       </ScreenHeader>
