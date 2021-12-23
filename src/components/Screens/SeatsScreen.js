@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom"
 import Button from "../Screen components/Button";
+import Loading from "../Screen components/Loading";
 import ReturnInputs from "../Screen components/ReturnInputs";
 import ScreenFooter from "../Screen components/ScreenFooter";
 import ScreenHeader from "../Screen components/ScreenHeader";
@@ -33,7 +34,7 @@ export default function SeatsScreen() {
   }, [id]);
 
 
-  if (serverData === undefined) return <h1>Carregando...</h1>;
+  if (serverData === undefined) return <Loading />
 
   return (
     <div className="SeatsScreenContainer">

@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
+import Loading from "../Screen components/Loading";
 import ScreenHeader from "../Screen components/ScreenHeader";
+
 
 export default function MoviesScreen() {
   const [movies, setMovies] = useState();
@@ -13,7 +15,7 @@ export default function MoviesScreen() {
 
   console.log(movies);
 
-  if (movies === undefined) return <span>Carregando...</span>
+  if (movies === undefined) return <Loading />
 
   return (
     <div className="MoviesScreenContainer">
