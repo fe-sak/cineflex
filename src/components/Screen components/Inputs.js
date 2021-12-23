@@ -4,9 +4,6 @@ export default function Inputs({ children: [id, selectedSeatsNames, index, buyer
   const [nameInput, setNameInput] = useState('');
   const [cpfInput, setcpfInput] = useState('');
 
-  console.log('buyers: ');
-  console.log(buyers);
-
   for (let i = 0; i < buyers.length; i++) {
     if (buyers[i].idAssento === id) buyers.splice(i, 1);
   }

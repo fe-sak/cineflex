@@ -12,10 +12,7 @@ export default function SessionScreen() {
 
   useEffect(() => {
     axios.get(`https://mock-api.driven.com.br/api/v4/cineflex/movies/${id}/showtimes`)
-      .then((serverAnswer) => {
-        setSessions(serverAnswer.data);
-        console.log(serverAnswer)
-      })
+      .then((serverAnswer) => setSessions(serverAnswer.data))
   }, [id])
 
   if (sessions === undefined) return <Loading />

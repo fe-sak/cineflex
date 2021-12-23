@@ -4,7 +4,6 @@ export default function Seat({ children: [id, name, isAvailable, selectedSeatsId
   setSelectedSeatsIds, selectedSeatsNames, setSelectedSeatsNames, buyers] }) {
   const [seatState, setSeatState] = useState();
 
-
   return (
     <div className={`seat ${isAvailable ? '' : 'unavailable'} ${seatState}`} onClick={() => {
 
@@ -17,8 +16,6 @@ export default function Seat({ children: [id, name, isAvailable, selectedSeatsId
         }
         else {
           let currentBuyer = buyers.filter((buyer) => buyer.idAssento === id);
-          console.log("currentBuyer")
-          console.log(currentBuyer);
           if (currentBuyer[0].nome.length !== 0 || currentBuyer[0].cpf.length !== 0) {
             if (window.confirm("Deseja desselecionar este assento? Os dados preenchidos serão perdidos!")) {
               setSeatState();
@@ -33,8 +30,6 @@ export default function Seat({ children: [id, name, isAvailable, selectedSeatsId
           }
         }
       }
-
-
     }}>
       <span>{name}</span>
     </div>

@@ -20,7 +20,6 @@ export default function SeatsScreen() {
 
   let buyers = [];
 
-
   let selectedSeatsObject = {
     ids: selectedSeatsIds,
     compradores: []
@@ -32,7 +31,6 @@ export default function SeatsScreen() {
         setServerData(serverAnswer.data);
       })
   }, [id]);
-
 
   if (serverData === undefined) return <Loading />
 
@@ -106,7 +104,6 @@ export default function SeatsScreen() {
           }
         }}
       </Button>
-
 
       <ScreenFooter>
         {serverData.movie.posterURL}

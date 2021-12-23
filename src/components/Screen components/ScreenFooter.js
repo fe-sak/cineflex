@@ -1,5 +1,4 @@
 export default function ScreenFooter({ children: [img, title, showtime] }) {
-
   return (
     <div className="screenFooter">
       <div>

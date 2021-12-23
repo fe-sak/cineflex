@@ -10,8 +10,6 @@ export default function PageHeader() {
     )
   }
 
-
-  console.log(location);
   return (
     <header>
       {location.pathname === '/' ? '' : <ReturnButton />}

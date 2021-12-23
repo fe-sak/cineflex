@@ -13,8 +13,6 @@ export default function MoviesScreen() {
       .then(serverAnswer => setMovies(serverAnswer.data))
   }, []);
 
-  console.log(movies);
-
   if (movies === undefined) return <Loading />
 
   return (
@@ -30,7 +28,6 @@ export default function MoviesScreen() {
                 <img src={movie.posterURL} alt={movie.title} />
               </div>
             </Link>
-
           )
         })}
       </div>

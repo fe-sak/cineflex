@@ -6,7 +6,7 @@ import ScreenHeader from "../Screen components/ScreenHeader";
 export default function SuccessScreen() {
   const location = useLocation()
   const state = location.state
-  console.log(location)
+
   return (
     <div className="successScreenContainer">
       <ScreenHeader>
@@ -54,6 +54,5 @@ export default function SuccessScreen() {
         {"Voltar para Home"}
       </Button>
     </div>
-
   )
 }
